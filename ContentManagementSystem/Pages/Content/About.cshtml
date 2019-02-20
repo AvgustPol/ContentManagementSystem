@@ -1,0 +1,24 @@
+﻿@page
+
+@model AboutModel
+@{
+  ViewData["Title"] = Model.PageTitle;
+}
+
+<h3>@Model.Message</h3>
+
+<hr />
+
+<img src=" @Model.TestImagine " />
+
+  foreach (var content in Model.PageContent.Content)
+  {
+    if (content is )
+    {
+
+    }
+<div>
+  Html.Raw()
+</div>
+<hr />
+  }

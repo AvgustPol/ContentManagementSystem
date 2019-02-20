@@ -1,0 +1,59 @@
+﻿@page
+@model ContentManagementSystem.Pages.CMS.AllText.EditModel
+
+@{
+  ViewData["Title"] = "Edit";
+}
+
+
+<h2>Edit</h2>
+
+<h4>TextContent</h4>
+<hr />
+<div class="row">
+  <div class="col-md-12">
+    <form method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <div class="form-group">
+        <label asp-for="TextContent.Title" class="control-label"></label>
+        <input asp-for="TextContent.Title" class="form-control" />
+        <span asp-validation-for="TextContent.Title" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <label asp-for="TextContent.Text" class="control-label"></label>
+        <textarea id="editor" asp-for="TextContent.Text">
+        </textarea>
+        <span asp-validation-for="TextContent.Text" class="text-danger"></span>
+      </div>
+      <input type="hidden" asp-for="TextContent.Id" />
+      <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+      </div>
+    </form>
+  </div>
+</div>
+
+<div>
+  <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+  @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+  <script>
+    ClassicEditor
+      .create(document.querySelector('#editor'), {
+        toolbar: ['bold', 'italic', 'bulletedList', 'numberedList', 'blockQuote', 'heading', 'link'],
+        heading: {
+          options: [
+            { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+            { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+            { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+          ]
+        }
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  </script>
+
+}

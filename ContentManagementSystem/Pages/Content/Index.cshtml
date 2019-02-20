@@ -1,0 +1,20 @@
+﻿@page
+@model ContentManagementSystem.Pages.Content.IndexModel
+
+@{
+  ViewData["Title"] = "All text data in database";
+}
+
+<h2>All text data in database</h2>
+
+<hr />
+-
+
+@foreach (var item in Model.TextContent)
+{
+  <div style="box-shadow:2px 2px 2px 2px #ccc; padding: 30px; margin: 30px;">
+    <h1>Title : @Html.DisplayFor(modelItem => item.Title)</h1>
+    <hr />
+    @Html.Raw(item.Text)
+  </div>
+}

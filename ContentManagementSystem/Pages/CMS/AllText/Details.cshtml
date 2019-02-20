@@ -1,0 +1,31 @@
+﻿@page
+@model ContentManagementSystem.Pages.CMS.AllText.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TextContent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TextContent.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TextContent.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TextContent.Text)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TextContent.Text)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TextContent.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

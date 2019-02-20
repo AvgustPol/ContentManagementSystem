@@ -1,0 +1,43 @@
+﻿@page
+@model ContentManagementSystem.Pages.CMS.EfScaffoldTesting.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ImageContent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageContent.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageContent.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageContent.Data)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageContent.Data)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageContent.Length)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageContent.Length)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ImageContent.ContentType)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ImageContent.ContentType)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.ImageContent.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

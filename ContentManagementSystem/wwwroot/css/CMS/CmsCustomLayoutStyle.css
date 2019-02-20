@@ -1,0 +1,19 @@
+﻿body {
+    padding-top: 0px !important;
+}
+
+.nav-side-menu {
+    font-family: inherit;
+    font-size: 24px;
+    font-weight: 200;
+    background-color: #2e353d;
+    height: 2000px;
+}
+
+.nav-side-menu li {
+    color: white;
+}
+
+.nav-side-menu a  {
+    color: white;
+}

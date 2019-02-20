@@ -1,0 +1,59 @@
+﻿@*TODO:
+если ты хочешь передавать колекцию обьектов (Pages) для того, чтобы рендерить навигацию с помощью функции
+
+pseudocode:
+foreach(var page in Pages)
+{
+<li class="nav-item ">
+  TODO: а как вот тут рендерить для asp-page?   < ------ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  <a class="nav-link" asp-page="/Content???/Contact???">page.Name</a>
+</li>
+}
+
+, то тебе
+нужно решить следующую проблему:
+
+данный partial будет использовать свой model:
+
+@model ContentManagementSystem.Pages.Shared._NavigationPartialModel
+
+для того, чтобы доставать от туда значения (названия страниц (page.Name))
+
+если сама старница (то есть та, которая прогружается на данный момент)
+имеет свой собственный model, то возникает проблема - не могут быть одновременно две модели (model)
+
+Решением может быть ленивая загрузка - мы всегда подгружаем model в разделе навигации (возможно в каком-то другом месте)
+один model для всех.
+а на основании того, на какой странице мы сейчас находимся (например .../Content/Contact)
+подгружаются данные для Contact*@
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" asp-page="/Content/Index">Home</a>
+
+    <a asp-page="/Index" class="navbar-brand">Kredek</a>
+    <div class="collapse navbar-collapse" id="navbarsExample07">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item ">
+          <a class="nav-link" asp-page="/Content/Contact">Contact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" asp-page="/Content/About">About</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link disabled" href="#">Coming soon!</a>
+        </li>
+        <li><a class="nav-link" style="color : aqua "> Useless??? -> </a> </li>
+
+        <partial name="_LoginPartial" />
+      </ul>
+
+      <form class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" placeholder="Search" aria-label="Search">
+      </form>
+    </div>
+  </div>
+</nav>
