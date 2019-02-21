@@ -11,7 +11,6 @@ namespace ContentManagementSystem.Pages
     {
         public void OnGet()
         {
-
         }
     }
 }

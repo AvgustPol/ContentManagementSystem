@@ -5,7 +5,7 @@ namespace ContentManagementSystem.Pages
 {
     public class ContactModel : PageTemplate
     {
-        public ContactModel(WebsiteContentContext context) : base(context)
+        public ContactModel(WebsiteContentContext context) : base(context, "Contact")
         {
         }
 

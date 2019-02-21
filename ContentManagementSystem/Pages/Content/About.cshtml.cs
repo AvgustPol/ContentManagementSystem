@@ -13,7 +13,7 @@ namespace ContentManagementSystem.Pages
         public string TestText { get; set; }
         public TextContent TextContent { get; set; }
 
-        public AboutModel(WebsiteContentContext context) : base(context)
+        public AboutModel(WebsiteContentContext context) : base(context, "About")
         {
             _context = context;
 

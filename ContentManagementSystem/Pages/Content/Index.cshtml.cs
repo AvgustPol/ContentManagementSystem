@@ -1,4 +1,6 @@
-﻿using ContentManagementSystem.Data.Entities;
+﻿using ContentManagementSystem.Data;
+using ContentManagementSystem.Data.Entities;
+using ContentManagementSystem.Pages.Template;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
@@ -6,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace ContentManagementSystem.Pages.Content
 {
-    public class IndexModel : PageModel
+    public class IndexModel : PageTemplate
     {
-        private readonly ContentManagementSystem.Data.WebsiteContentContext _context;
+        private readonly WebsiteContentContext _context;
 
-        public IndexModel(ContentManagementSystem.Data.WebsiteContentContext context)
+        public IndexModel(WebsiteContentContext context) : base(context, "IndexModel")
         {
             _context = context;
         }
