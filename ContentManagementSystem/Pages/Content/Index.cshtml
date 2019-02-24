@@ -1,8 +1,65 @@
 ﻿@page
 @model ContentManagementSystem.Pages.Content.IndexModel
 
+<style>
+
+    /* Three columns side by side */
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+/* Display the columns below each other instead of side by side on small screens */
+@@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+/* Add some shadows to create a card effect */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Some left and right padding inside the container */
+.container {
+  padding: 0 16px;
+}
+
+/* Clear floats */
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+
+</style>
+
 @{
-  ViewData["Title"] = "All text data in database";
+    ViewData["Title"] = "All text data in database";
 }
 
 <h2>All text data in database</h2>
@@ -12,9 +69,113 @@
 
 @foreach (var item in Model.TextContent)
 {
-  <div style="box-shadow:2px 2px 2px 2px #ccc; padding: 30px; margin: 30px;">
-    <h1>Title : @Html.DisplayFor(modelItem => item.Title)</h1>
-    <hr />
-    @Html.Raw(item.Text)
-  </div>
+    <div style="box-shadow:2px 2px 2px 2px #ccc; padding: 30px; margin: 30px;">
+        <h1>Title : @Html.DisplayFor(modelItem => item.Title)</h1>
+        <hr />
+        @Html.Raw(item.Text)
+    </div>
 }
+
+<!--Carousel Wrapper-->
+<div id="video-carousel-example" class="carousel slide carousel-fade" data-ride="carousel">
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+        <li data-target="#video-carousel-example" data-slide-to="0" class="active"></li>
+        <li data-target="#video-carousel-example" data-slide-to="1"></li>
+        <li data-target="#video-carousel-example" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+            <video class="video-fluid" autoplay loop muted>
+                <source src="https://mdbootstrap.com/img/video/Tropical.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="carousel-item">
+            <video class="video-fluid" autoplay loop muted>
+                <source src="https://mdbootstrap.com/img/video/forest.mp4" type="video/mp4" />
+            </video>
+        </div>
+        <div class="carousel-item">
+            <video class="video-fluid" autoplay loop muted>
+                <source src="https://mdbootstrap.com/img/video/Agua-natural.mp4" type="video/mp4" />
+            </video>
+        </div>
+    </div>
+    <!--/.Slides-->
+    <!--Controls-->
+    <a class="carousel-control-prev" href="#video-carousel-example" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#video-carousel-example" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+    <!--/.Controls-->
+</div>
+<!--Carousel Wrapper-->
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<div class="row">
+    <div class="column">
+        <div class="card">
+            <img src="https://pp.userapi.com/c845220/v845220905/1919e3/X5MatBLX4K4.jpg" alt="Jane" style="width:100%;">
+            <div class="container">
+                <h2>Jane Doe</h2>
+                <p class="title">CEO &amp; Founder</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="https://pp.userapi.com/c844216/v844216813/1acdd5/1B_tmTWvYig.jpg" alt="Mike" style="width:100%; ">
+            <div class="container">
+                <h2>Mike Ross</h2>
+                <p class="title">Art Director</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="column">
+        <div class="card">
+            <img src="https://pp.userapi.com/c851024/v851024627/9c29e/_glWlOdTfu8.jpg" alt="John" style="width:100%;">
+            <div class="container">
+                <h2>John Doe</h2>
+                <p class="title">Designer</p>
+                <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                <p>example@example.com</p>
+                <p><button class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12 tex-left">
+        <figure class="col-md-4 offset-md-4">
+            <a href="https://mdbootstrap.com/img/Photos/Lightbox/Original/img%20(150).jpg" data-size="1600x1067">
+                <img alt="picture" src="https://mdbootstrap.com/img/Photos/Lightbox/Thumbnail/img%20(150).jpg" class="img-fluid" />
+            </a>
+        </figure>
+    </div>
+</div>

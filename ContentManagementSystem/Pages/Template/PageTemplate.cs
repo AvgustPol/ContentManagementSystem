@@ -20,11 +20,11 @@ namespace ContentManagementSystem.Pages.Template
 
         public PageTemplate(WebsiteContentContext context, string pageName)
         {
-            var allPages = context.PagesContent.Include(x => x.PageName).ToList();
+            //var allPages = context.PagesContent.Include(x => x.PageName).ToList();
 
             //var pageName = ViewContext.RouteData.Values["controller"].ToString();
 
-            PageContent = allPages.Find(x => x.PageName == PageName);
+            //PageContent = allPages.Find(x => x.PageName == PageName);
             PageName = pageName;
         }
 
